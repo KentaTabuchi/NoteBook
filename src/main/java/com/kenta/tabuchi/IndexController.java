@@ -9,11 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
 	
 	@Autowired
-	NoteRepository repository;
+	NoteRepository noteRepository;
+	@Autowired
+	CategoryRepository categoryRepository;
 	@GetMapping("/")
 	public ModelAndView index_get(ModelAndView view) {
-		
-		view.addObject("notes",repository.findAll());
+		view.addObject("categories",categoryRepository.findAll());
+		view.addObject("notes",noteRepository.findAll());
 		view.setViewName("index");
 
 		return view;

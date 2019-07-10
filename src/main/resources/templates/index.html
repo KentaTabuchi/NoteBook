@@ -16,6 +16,10 @@
 		<td th:text="${note.time_stamp}"></td>	
 		<td th:text="${note.category_code}"></td>
 	</tr>
+	<tr th:each="category:${categories}">
+		<td th:text="${category.code}"></td>
+		<td th:text="${category.name}"></td>
+	</tr>
 	</table>
 </body>
 </html>

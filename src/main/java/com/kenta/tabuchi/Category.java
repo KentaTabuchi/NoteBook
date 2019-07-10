@@ -1,20 +1,21 @@
 package com.kenta.tabuchi;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="categories")
 public class Category {
-	@OneToOne
-	private Note note;
-	public Category() {
-		super();
-		note = new Note();
-	}
+
+	@Id
+	@Column
 	protected String code;
+	@Column
 	protected String name;
+	
 	public String getCode() {
 		return code;
 	}
