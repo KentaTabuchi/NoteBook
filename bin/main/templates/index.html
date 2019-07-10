@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>目次</title>
+</head>
+<body>
+	<h1>目次</h1>
+
+	<p>オブジェクトから取り出し</p>
+	<table>
+	<tr th:each="note:${notes}">
+		<td th:text="${note.id}"></td>
+		<td th:text="${note.title}"></td>
+		<td th:text="${note.body}"></td>
+		<td th:text="${note.time_stamp}"></td>	
+		<td th:text="${note.category_code}"></td>
+	</tr>
+	</table>
+</body>
+</html>
