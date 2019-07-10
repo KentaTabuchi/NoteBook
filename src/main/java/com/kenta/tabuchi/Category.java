@@ -9,7 +9,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="categories")
 public class Category {
-
+	@OneToOne(mappedBy = "categories")
+	private Note note;
+	
 	@Id
 	@Column
 	protected String code;

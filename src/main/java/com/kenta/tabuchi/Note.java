@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -21,9 +22,13 @@ import javax.persistence.Table;
 @Table(name="notes")
 public class Note {
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//	@Column(nullable = true)
-//	private Category category;
+	@OneToOne
+	@JoinColumn(nullable = true, name = "code",referencedColumnName = "category_code")
+	private Category category;
+	public Note() {
+		super();
+		category = new Category();
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -72,6 +77,4 @@ public class Note {
 	public void setBody(String body) {
 		this.body = body;
 	}
-
-
 }
